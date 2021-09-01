@@ -238,11 +238,11 @@ def main():
         # (30, 50, 0.01, 25, 200, 'local_{}_ft.bin', 10, 200, 1000),
     ]
     nlda_params = [
-        # lda_k, nft_k, alpha, beta, skew, noise_words_max, iterations, topic_weights tuple
+        # lda_k, nft_k, alpha, beta, skew, noise_words_max, iterations, phi values tuple
         (((10,), (20,), (30,)), (30, 0.1, 0.01, 25, 200, 1000), (1, 5, 10, 15, 20, 25, 30)),
     ]
     enlda_params = [
-        # lda_k, nft_k, alpha, beta, skew, noise_words_max, embedding_path, closest_x_words, tau (number of iterations before embedding activation), iterations, topic_weights tuple
+        # lda_k, nft_k, alpha, beta, skew, noise_words_max, embedding_path, closest_x_words, tau (number of iterations before embedding activation), iterations, phi values tuple
         # (((30,),), (30, 50, 0.01, 25, 200, 'local_{}_ft.bin', 3, 200, 1000), (1, 5, 10, 15, 20, 25, 30)),
         (((30,),), (30, 50, 0.01, 25, 200, 'local_{}_ft.bin', 5, 200, 1000), (1, 5, 10, 15, 20, 25, 30)),
         # (((30,),), (30, 50, 0.01, 25, 200, 'local_{}_ft.bin', 10, 200, 1000), (1, 5, 10, 15, 20, 25, 30)),
@@ -257,7 +257,7 @@ def main():
         # run TND with embeddings
         model2 = run_ETND_MALLET(dataset, dataset_name, etnd_path, etnd_params, results_path)
 
-        # this will compute TND and LDA again from scratch
+        # this will compute TND and LDA from scratch
         model3 = run_NLDA(dataset, dataset_name, mallet_path, tnd_path, nlda_params, results_path)
 
         # this will compute LDA from scratch, but use the noise distribution calculated in model2 to save computation time

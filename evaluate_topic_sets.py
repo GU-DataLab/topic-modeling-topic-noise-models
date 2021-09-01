@@ -1,4 +1,4 @@
-from tm_pipeline import evaluate_enlda_topic_set
+from tm_pipeline.evaluate_topic_set import compute_all_results
 
 
 def get_param_string(param):
@@ -9,7 +9,7 @@ def main():
     path = 'results/{}/{}/'
 
     dataset_names = ['sample_tweets']
-    models = ['tnd', 'nlda', 'enft', 'enlda']
+    models = ['tnd', 'nlda', 'etnd', 'enlda']
     model_params = {
         "tnd": [
             # k, alpha, beta, skew, noise_words_max, iterations
@@ -91,7 +91,7 @@ def main():
                             topicset_noise_paths[label] = (nlda_path, noise_path, lda_param[0])
 
 
-        evaluate_enlda_topic_set.compute_all_results(topicset_noise_paths, results_path, dataset_path)
+        compute_all_results(topicset_noise_paths, results_path, dataset_path)
 
 if __name__ == '__main__':
     main()

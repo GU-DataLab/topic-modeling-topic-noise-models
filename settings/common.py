@@ -3,11 +3,11 @@ def save_flat_list(lizt, file):
         f.write('\n'.join(lizt))
 
 
-def load_flat_dataset(path):
+def load_flat_dataset(path, delimiter=' '):
     dataset = []
     with open(path, 'r') as f:
         for line in f:
-            dataset.append(line.strip().split(' '))
+            dataset.append(line.strip().split(delimiter))
     return dataset
 
 
