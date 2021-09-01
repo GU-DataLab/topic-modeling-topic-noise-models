@@ -70,7 +70,8 @@ model1 = TndMallet(tnd_path, corpus, num_topics=30, id2word=dictionary, workers=
                    alpha=50, beta=0.01, skew=25, noise_words_max=200, iterations=1000)
 
 model2 = eTndMallet(etnd_path, corpus, num_topics=30, id2word=dictionary, workers=4,
-                   alpha=50, beta=0.01, skew=25, noise_words_max=200,                                   tau=200, embedding_path='local_sample_tweets_ft.bin',
+                   alpha=50, beta=0.01, skew=25, noise_words_max=200,
+                   tau=200, embedding_path='local_sample_tweets_ft.bin',
                    closest_x_words=3, iterations=1000)
 
 topics = model1.show_topics(num_topics=k, num_words=20, formatted=False)
