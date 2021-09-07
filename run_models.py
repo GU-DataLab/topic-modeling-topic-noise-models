@@ -2,6 +2,8 @@ import os
 import math
 import random
 from gensim import corpora
+from gensim.models import FastText
+from gensim.models.fasttext import save_facebook_model
 from settings.common import save_topics, load_flat_dataset
 from tm_pipeline.tndmallet import TndMallet
 from tm_pipeline.ldamallet import LdaMallet
@@ -251,6 +253,10 @@ def main():
     for dataset_name in dataset_names:
         dataset = load_flat_dataset('data/{}.csv'.format(dataset_name))
 
+        # train fasttext vectors if needed
+        ft = FastText(sentences=dataset, vector_size=100, min_count=50)
+        save_facebook_model(ft, 'local_{}_ft.bin'.format(dataset_name))
+        
         # run TND without embeddings
         model1 = run_TND_MALLET(dataset, dataset_name, tnd_path, tnd_params, results_path)
 
