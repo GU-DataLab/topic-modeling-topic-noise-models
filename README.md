@@ -13,7 +13,7 @@ Data sets should be loaded as a list of documents, where each document is a list
 from gensim import corpora
 from settings.common import load_flat_dataset
 
-dataset = load_flat_dataset('sample_tweets.csv', delimiter=' ')
+dataset = load_flat_dataset('data/sample_tweets.csv', delimiter=' ')
 dictionary = corpora.Dictionary(dataset)
 dictionary.filter_extremes()
 corpus = [dictionary.doc2bow(doc) for doc in dataset]
