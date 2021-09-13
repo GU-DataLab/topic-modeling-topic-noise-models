@@ -1,6 +1,4 @@
 class
-dist/mallet-deps.jar
-dist/mallet.jar
 /target/
 .classpath
 .project

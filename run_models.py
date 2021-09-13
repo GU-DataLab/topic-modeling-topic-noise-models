@@ -256,7 +256,7 @@ def main():
         # train fasttext vectors if needed
         ft = FastText(sentences=dataset, vector_size=100, min_count=50)
         save_facebook_model(ft, 'local_{}_ft.bin'.format(dataset_name))
-        
+
         # run TND without embeddings
         model1 = run_TND_MALLET(dataset, dataset_name, tnd_path, tnd_params, results_path)
 
