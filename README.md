@@ -1,9 +1,12 @@
 # Topic Noise Discriminator (TND) and Noiseless LDA (NLDA)
 Implementations of Topic Noise Discriminator and NLDA, along with our evaluation metrics, can be found here.
 
-### Requirements
-to install relevant requirements:
+### Requirements and Setup
+to install relevant Python requirements:
 > pip install -r requirements.txt
+
+to build the Mallet files for the different topic models:
+> ./setup.sh
 
 ### Using TND and NLDA
 **Loading and Preparing Data for Modeling.**

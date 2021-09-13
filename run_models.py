@@ -36,8 +36,8 @@ def run_LDA(dataset, dataset_name, mallet_path, param_combos, results_path):
 
 
 def run_TND_MALLET(dataset, dataset_name, mallet_path, param_combos, results_path):
-    if not os.path.exists('{}/{}/nft/'.format(results_path, dataset_name)):
-        os.makedirs('{}/{}/nft/'.format(results_path, dataset_name))
+    if not os.path.exists('{}/{}/tnd/'.format(results_path, dataset_name)):
+        os.makedirs('{}/{}/tnd/'.format(results_path, dataset_name))
     dictionary = corpora.Dictionary(dataset)
     dictionary.filter_extremes()
     corpus = [dictionary.doc2bow(doc) for doc in dataset]
@@ -269,7 +269,6 @@ def main():
         # this will compute LDA from scratch, but use the noise distribution calculated in model2 to save computation time
         model4 = run_eNLDA(dataset, dataset_name, mallet_path, etnd_path, enlda_params, results_path,
                            noise_dist=model2.load_noise_dist())
-
 
 
 if __name__ == '__main__':
