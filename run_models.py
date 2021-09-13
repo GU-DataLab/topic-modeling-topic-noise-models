@@ -226,7 +226,7 @@ def main():
     tnd_path = 'mallet-tnd/bin/mallet'
     etnd_path = 'mallet-etnd/bin/mallet'
 
-    results_path = 'results/'
+    results_path = 'results'
     dataset_names = ['sample_tweets']
 
     tnd_params = [
