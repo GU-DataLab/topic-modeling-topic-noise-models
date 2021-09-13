@@ -289,12 +289,12 @@ public class TopicTrainer {
             topicModel.printTopWords(new File(topicKeysFile.value), topWords.value, false);
         }
 
-        if (diagnosticsFile.value != null) {
-            PrintWriter out = new PrintWriter(diagnosticsFile.value);
-            TopicModelDiagnostics diagnostics = new TopicModelDiagnostics(topicModel, topWords.value);
-            out.println(diagnostics.toXML());
-            out.close();
-        }
+//         if (diagnosticsFile.value != null) {
+//             PrintWriter out = new PrintWriter(diagnosticsFile.value);
+//             TopicModelDiagnostics diagnostics = new TopicModelDiagnostics(topicModel, topWords.value);
+//             out.println(diagnostics.toXML());
+//             out.close();
+//         }
 
         if (topicReportXMLFile.value != null) {
             PrintWriter out = new PrintWriter(topicReportXMLFile.value);
