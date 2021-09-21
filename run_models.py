@@ -262,20 +262,21 @@ def main():
         ft = FastText(sentences=dataset, vector_size=100, min_count=50)
         save_facebook_model(ft, 'local_{}_ft.bin'.format(dataset_name))
 
+        # run LDA
         model0 = run_LDA(dataset, dataset_name, mallet_path, lda_params, results_path)
 
-        # # run TND without embeddings
-        # model1 = run_TND_MALLET(dataset, dataset_name, tnd_path, tnd_params, results_path)
-        #
-        # # run TND with embeddings
-        # model2 = run_ETND_MALLET(dataset, dataset_name, etnd_path, etnd_params, results_path)
-        #
-        # # this will compute TND and LDA from scratch
-        # model3 = run_NLDA(dataset, dataset_name, mallet_path, tnd_path, nlda_params, results_path)
-        #
-        # # this will compute LDA from scratch, but use the noise distribution calculated in model2 to save computation time
-        # model4 = run_eNLDA(dataset, dataset_name, mallet_path, etnd_path, enlda_params, results_path,
-        #                    noise_dist=model2.load_noise_dist())
+        # run TND without embeddings
+        model1 = run_TND_MALLET(dataset, dataset_name, tnd_path, tnd_params, results_path)
+
+        # run TND with embeddings
+        model2 = run_ETND_MALLET(dataset, dataset_name, etnd_path, etnd_params, results_path)
+
+        # this will compute TND and LDA from scratch
+        model3 = run_NLDA(dataset, dataset_name, mallet_path, tnd_path, nlda_params, results_path)
+
+        # this will compute LDA from scratch, but use the noise distribution calculated in model2 to save computation time
+        model4 = run_eNLDA(dataset, dataset_name, mallet_path, etnd_path, enlda_params, results_path,
+                           noise_dist=model2.load_noise_dist())
 
 
 if __name__ == '__main__':

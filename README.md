@@ -5,9 +5,7 @@ Implementations of Topic Noise Discriminator and NLDA, along with our evaluation
 to install relevant Python requirements:
 > pip install -r requirements.txt
 
-You must have the Java JDK installed on your computer for the next step.  It can be downloaded [here](https://www.oracle.com/java/technologies/javase-downloads.html).  We originally built this with JDK 11, but have tested with JDK 8 and 16.
-to build the Mallet files for the different topic models:
-> ./setup.sh
+You must have the Java JDK installed on your computer to run TND. It can be downloaded [here](https://www.oracle.com/java/technologies/javase-downloads.html).  We originally built this with JDK 11, but have tested with JDK 8 and 16.
 
 ### Using TND and NLDA
 **Loading and Preparing Data for Modeling.**
