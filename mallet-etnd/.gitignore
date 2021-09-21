@@ -1,4 +1,3 @@
-class
 /target/
 .classpath
 .project
@@ -6,6 +5,5 @@ class
 *.obj
 *.dot
 .idea
-*.class
 mallet.iml
 test/TEST-*.*
