@@ -86,9 +86,11 @@ We can run NLDA and eNLDA in one go using their classes in `tm_pipeline`.
 ```python
 from tm_pipeline.nlda import NLDA
 
+mallet_path = 'mallet-2.0.8/bin/mallet'
+
 model = NLDA(dataset=dataset, tnd_k=30, tnd_alpha=50, tnd_beta0=0.01, tnd_beta1=25, tnd_noise_words_max=200,
                  tnd_iterations=1000, lda_iterations=1000, lda_k=30, nlda_phi=10, nlda_topic_depth=100, top_words=20,
-                 save_path='results/', mallet_tnd_path=tnd_path, mallet_lda_path=lda_path, random_seed=1824, run=True)
+                 save_path='results/', mallet_tnd_path=tnd_path, mallet_lda_path=mallet_path, random_seed=1824, run=True)
 ```
 
 Setting `run=True` here (the default) will result in NLDA being run through on initialization.  Setting it to false allows one to go through the model one step at a time, like so:

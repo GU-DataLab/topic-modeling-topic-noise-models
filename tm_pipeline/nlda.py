@@ -2,8 +2,8 @@
 import math
 import random
 from gensim import corpora
-from ldamallet import LdaMallet
-from tndmallet import TndMallet
+from .ldamallet import LdaMallet
+from .tndmallet import TndMallet
 
 
 class MissingModelError(Exception):
