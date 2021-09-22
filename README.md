@@ -8,6 +8,8 @@ to install relevant Python requirements:
 You must have the Java JDK installed on your computer to run TND. It can be downloaded [here](https://www.oracle.com/java/technologies/javase-downloads.html).  We originally built this with JDK 11, but have tested with JDK 8 and 16.
 
 ### Using TND and NLDA
+All of the code in this section, with the exception of pseudocode, is included in the script `readme_script.py`.  There is another script called `run_models.py` that can be used to test models at scale using sets of parameters.
+
 **Loading and Preparing Data for Modeling.**
 Data sets should be loaded as a list of documents, where each document is a list of words.  We have a built-in function to load data.  We also convert the data set to a gensim corpus for use in our models.
 ```python
