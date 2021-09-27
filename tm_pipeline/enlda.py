@@ -23,13 +23,6 @@ class MissingDataSetError(Exception):
                            'distribution, or provide a data set to be modeled.'
         super().__init__(self.message)
 
-        class MissingDataSetError(Exception):
-            def __init__(self, message=None):
-                self.message = message
-                if self.message is None:
-                    self.message = 'You must either provide a pretrained noise distribution and pretrained topic-word ' \
-                                   'distribution, or provide a data set to be modeled.'
-                super().__init__(self.message)
 
 class MissingEmbeddingPathError(Exception):
     def __init__(self, message=None):
