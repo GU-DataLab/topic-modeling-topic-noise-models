@@ -30,7 +30,8 @@ class NLDA:
     def __init__(self, dataset=None, tnd_k=30, tnd_alpha=50, tnd_beta0=0.01, tnd_beta1=25, tnd_noise_words_max=200,
                  tnd_iterations=1000, lda_iterations=1000, lda_k=30, nlda_phi=10, nlda_topic_depth=100, top_words=20,
                  tnd_noise_distribution=None, lda_tw_dist=None, lda_topics=None, corpus=None, dictionary=None,
-                 save_path=None, mallet_tnd_path=None, mallet_lda_path=None, random_seed=1824, run=True):
+                 save_path=None, mallet_tnd_path=None, mallet_lda_path=None, random_seed=1824, run=True,
+                 tnd_workers=4, lda_workers=4):
         self.dataset = dataset
         self.tnd_k = tnd_k
         self.tnd_alpha = tnd_alpha
@@ -56,6 +57,8 @@ class NLDA:
         self.mallet_lda_path = mallet_lda_path
         self.random_seed = random_seed
         random.seed(self.random_seed)
+        self.lda_workers = lda_workers
+        self.tnd_workers = tnd_workers
 
         if self.mallet_tnd_path is None and self.tnd_noise_distribution is None:
             raise MissingModelError('tnd')
@@ -92,7 +95,8 @@ class NLDA:
         sets self.tnd_noise_distribution to the noise distribution computed in tnd
         :return: void
         """
-        model = TndMallet(self.mallet_tnd_path, self.corpus, num_topics=self.tnd_k, id2word=self.dictionary, workers=4,
+        model = TndMallet(self.mallet_tnd_path, self.corpus, num_topics=self.tnd_k, id2word=self.dictionary,
+                          workers=self.tnd_workers,
                           alpha=self.tnd_alpha, beta=self.tnd_beta0, skew=self.tnd_beta1,
                           iterations=self.tnd_iterations, noise_words_max=self.tnd_noise_words_max,
                           random_seed=self.random_seed)
@@ -105,7 +109,8 @@ class NLDA:
         sets self.lda_tw_dist to the topic word distribution computed in LDA
         :return: void
         """
-        model = LdaMallet(self.mallet_lda_path, self.corpus, num_topics=self.lda_k, id2word=self.dictionary, workers=4,
+        model = LdaMallet(self.mallet_lda_path, self.corpus, num_topics=self.lda_k, id2word=self.dictionary,
+                          workers=self.lda_workers,
                           iterations=self.lda_iterations, random_seed=self.random_seed)
         topic_word_distribution = model.load_word_topics()
         self.lda_tw_dist = topic_word_distribution

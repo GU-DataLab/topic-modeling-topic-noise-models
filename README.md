@@ -55,7 +55,7 @@ The version of TND that employs embedding spaces is split out in the Java implem
 * tau: the number of iterations before using the embedding space (aka burnin period)
 
 **NLDA Parameters.**
-NLDA is really an ensemble method containing TND and LDA (or whichever generative method one wants).  As such, it contains the parameters of its component models, as well as:
+NLDA comprises TND and LDA (or whichever generative method one wants).  As such, it contains the parameters of its component models, as well as:
 * nlda_phi: similar to skew from TND, this is a hyper-parameter that tunes the topic probability of a given word compared to its noise probability during the ensemble phase.
 * nlda_topic_depth: the number of top-probability topics words to consider when removing noise.  This limits the computation time of the ensemble and ensures that we will still filter noise from the topic words we are going to actually look at.
 
@@ -122,7 +122,7 @@ In performing research on topic models, we often want to run a bunch of model pa
 
 ### Referencing TND and NLDA
 ```
-Churchill, Rob and Singh, Lisa. 2022. Topic-Noise Models: Modeling Topic and Noise Distributions in Social Media Post Collections. ICDM 2021.
+Churchill, Rob and Singh, Lisa. 2021. Topic-Noise Models: Modeling Topic and Noise Distributions in Social Media Post Collections. International Conference on Data Mining (ICDM).
 ```
 
 ```bibtex 
